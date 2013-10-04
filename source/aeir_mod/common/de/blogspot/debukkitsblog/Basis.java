@@ -1,6 +1,7 @@
 package de.blogspot.debukkitsblog;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -35,6 +36,9 @@ public class Basis {
 	 */
 	public int testItemID = 15000;
 
+	public static Block testBlock;
+	public int testBlockID = 180;
+
 	@Instance("tutorial")
 	public static Basis instance;
 
@@ -49,10 +53,17 @@ public class Basis {
 	@Init
 	public void init(FMLInitializationEvent event) {
 
+		testBlock = new BlockBasis(testBlockID, Material.rock);
+		testBlock.setCreativeTab(CreativeTabs.tabMaterials);
+		testBlock.setLightValue(1.0F);
+		testBlock.setStepSound(Block.soundStoneFootstep);
+		testBlock.setUnlocalizedName("testBlock");
+
 		testItem = new ItemBasis(testItemID);
 		testItem.setUnlocalizedName("testItem");
 		testItem.setCreativeTab(CreativeTabs.tabDecorations);
 
+		registerBlocks();
 		registerItems();
 		updateLanguage();
 		initCraftingRecipes();
@@ -86,6 +97,13 @@ public class Basis {
 	}
 
 	/**
+	 * add blocks
+	 */
+	private void registerBlocks() {
+		GameRegistry.registerBlock(testBlock, "phaenovum Rock");
+	}
+
+	/**
 	 * add items
 	 */
 	private void registerItems() {
@@ -93,9 +111,10 @@ public class Basis {
 	}
 
 	/**
-	 * add names for items
+	 * add names for blocks and items
 	 */
 	private void updateLanguage() {
+		LanguageRegistry.addName(testBlock, "phaenovum Rock");
 		LanguageRegistry.addName(testItem, "phaenovum");
 	}
 }
