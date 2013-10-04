@@ -3,9 +3,11 @@ package de.blogspot.debukkitsblog;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -43,6 +45,13 @@ public class Basis {
 	public static ItemFoodBasis aeCake;
 	public int aeCakeID = 15002;
 	public String aeCakeName = "phaenovum cake";
+
+	public static ItemPickaxeDirt diryPickAxe;
+	public int diryPickAxeID = 15003;
+	public String diryPickAxeName = "dirty Pickaxe";
+	private static EnumToolMaterial diryPickAxeMaterial = EnumHelper
+			.addToolMaterial(Block.dirt.getUnlocalizedName(), 4, 2500, 14F, 5,
+					22);
 
 	public static Block testBlock;
 	public int testBlockID = 180;
@@ -101,6 +110,12 @@ public class Basis {
 		aeCake.setMaxStackSize(16);
 		aeCake.setIconFile("Basis:ae_cake");
 
+		diryPickAxe = new ItemPickaxeDirt(diryPickAxeID, diryPickAxeMaterial);
+		diryPickAxe.setUnlocalizedName("diryPickAxe");
+		diryPickAxe.setCreativeTab(CreativeTabs.tabTools);
+		diryPickAxe.setMaxStackSize(1);
+		diryPickAxe.setIconFile("Basis:dirty_pickaxe");
+
 		registerBlocks();
 		registerItems();
 		updateLanguage();
@@ -139,7 +154,13 @@ public class Basis {
 				dirtStack, dirtStack, new ItemStack(Block.sand));
 		/* For testing cake in survival mode */
 		GameRegistry.addShapelessRecipe(new ItemStack(aeCake, 1), dirtStack);
-
+		GameRegistry.addRecipe(new ItemStack(diryPickAxe),
+		// 3x3 crafting table
+				"###", // upper row
+				"XIX", // middle row
+				"XIX", // lower row
+				// definition of single characters (undefined chars are empty)
+				'#', Block.dirt, 'I', Item.stick);
 	}
 
 	/**
@@ -168,6 +189,7 @@ public class Basis {
 		GameRegistry.registerItem(testItem, "phaenovum");
 		GameRegistry.registerItem(testItem2, "lars");
 		GameRegistry.registerItem(aeCake, "aeCake");
+		GameRegistry.registerItem(diryPickAxe, "diryPickAxe");
 	}
 
 	/**
@@ -179,5 +201,6 @@ public class Basis {
 		LanguageRegistry.addName(testItem2, "Lars");
 		LanguageRegistry.addName(aeCake, "phaenovum Cake");
 		LanguageRegistry.addName(aeCake, aeCakeName);
+		LanguageRegistry.addName(diryPickAxe, "dirty Pickaxe");
 	}
 }
