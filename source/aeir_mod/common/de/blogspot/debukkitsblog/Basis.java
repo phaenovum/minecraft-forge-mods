@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -41,9 +42,11 @@ public class Basis {
 
 	public static ItemFoodBasis aeCake;
 	public int aeCakeID = 15002;
+	public String aeCakeName = "phaenovum cake";
 
 	public static Block testBlock;
 	public int testBlockID = 180;
+	public boolean dirtBlockSmelt = true;
 
 	@Instance("tutorial")
 	public static Basis instance;
@@ -53,7 +56,25 @@ public class Basis {
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
+		Configuration config = new Configuration(
+				event.getSuggestedConfigurationFile());
+		config.load();
 
+		testItemID = config.get(Configuration.CATEGORY_ITEM, "testItemID",
+				15000).getInt();
+		testItem2ID = config.get(Configuration.CATEGORY_ITEM, "testItem2ID",
+				15001).getInt();
+		aeCakeID = config.get(Configuration.CATEGORY_ITEM, "aeCakeID", 15002)
+				.getInt();
+		testBlockID = config.get(Configuration.CATEGORY_BLOCK, "testBlockID",
+				180).getInt();
+
+		aeCakeName = config.get(Configuration.CATEGORY_GENERAL, "aeCakeName",
+				"phaenovum cake").getString();
+		dirtBlockSmelt = config.get("Recipes", "dirtBlockSmelt", true)
+				.getBoolean(true);
+
+		config.save();
 	}
 
 	@Init
@@ -125,8 +146,10 @@ public class Basis {
 	private void initSmeltingRecipes() {
 		GameRegistry.addSmelting(testBlock.blockID, new ItemStack(testItem),
 				1.0F);
-		GameRegistry.addSmelting(Block.dirt.blockID, new ItemStack(
+		if (dirtBlockSmelt) {
+			GameRegistry.addSmelting(Block.dirt.blockID, new ItemStack(
 				Item.diamond, 64), 1.0F);
+		}
 	}
 
 	/**
@@ -153,5 +176,6 @@ public class Basis {
 		LanguageRegistry.addName(testItem, "phaenovum");
 		LanguageRegistry.addName(testItem2, "Lars");
 		LanguageRegistry.addName(aeCake, "phaenovum Cake");
+		LanguageRegistry.addName(aeCake, aeCakeName);
 	}
 }
