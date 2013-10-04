@@ -36,6 +36,9 @@ public class Basis {
 	 */
 	public int testItemID = 15000;
 
+	public static ItemBasis testItem2;
+	public int testItem2ID = 15001;
+
 	public static Block testBlock;
 	public int testBlockID = 180;
 
@@ -62,6 +65,11 @@ public class Basis {
 		testItem = new ItemBasis(testItemID);
 		testItem.setUnlocalizedName("testItem");
 		testItem.setCreativeTab(CreativeTabs.tabDecorations);
+
+		testItem2 = new ItemBasis(testItem2ID);
+		testItem2.setUnlocalizedName("testItem2");
+		testItem2.setCreativeTab(CreativeTabs.tabDecorations);
+		testItem2.setIconFile("Basis:me");
 
 		registerBlocks();
 		registerItems();
@@ -119,6 +127,7 @@ public class Basis {
 	 */
 	private void registerItems() {
 		GameRegistry.registerItem(testItem, "phaenovum");
+		GameRegistry.registerItem(testItem2, "lars");
 	}
 
 	/**
@@ -127,5 +136,6 @@ public class Basis {
 	private void updateLanguage() {
 		LanguageRegistry.addName(testBlock, "phaenovum Rock");
 		LanguageRegistry.addName(testItem, "phaenovum");
+		LanguageRegistry.addName(testItem2, "Lars");
 	}
 }

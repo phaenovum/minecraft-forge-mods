@@ -7,6 +7,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBasis extends Item {
 
+	private String filename = "Basis:ae";
+
 	/**
 	 * Constructor creating an ItemBasis item
 	 * 
@@ -26,5 +28,10 @@ public class ItemBasis extends Item {
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister reg) {
 		this.itemIcon = reg.registerIcon("Basis:ae");
+		this.itemIcon = reg.registerIcon(filename);
+	}
+
+	public void setIconFile(String name) {
+		filename = name;
 	}
 }
