@@ -67,6 +67,7 @@ public class Basis {
 		registerItems();
 		updateLanguage();
 		initCraftingRecipes();
+		initSmeltingRecipes();
 	}
 
 	@PostInit
@@ -94,6 +95,16 @@ public class Basis {
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 64),
 				new ItemStack(Block.dirt));
+	}
+
+	/**
+	 * add melting recipes
+	 */
+	private void initSmeltingRecipes() {
+		GameRegistry.addSmelting(testBlock.blockID, new ItemStack(testItem),
+				1.0F);
+		GameRegistry.addSmelting(Block.dirt.blockID, new ItemStack(
+				Item.diamond, 64), 1.0F);
 	}
 
 	/**
