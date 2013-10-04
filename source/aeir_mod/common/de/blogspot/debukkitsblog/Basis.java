@@ -1,6 +1,7 @@
 package de.blogspot.debukkitsblog;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Mod;
@@ -14,11 +15,25 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import de.blogspot.debukkitsblog.proxies.BasisCommonProxy;
 
 @Mod(modid = "basis", name = "Basis Mod", version = "1.0.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Basis {
+
+	/*
+	 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	 * Variables
+	 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	 */
+
+	public static Item testItem;
+	/*
+	 * see http://minecraft.gamepedia.com/Data_values for valid data values for
+	 * blocks and items
+	 */
+	public int testItemID = 15000;
 
 	@Instance("tutorial")
 	public static Basis instance;
@@ -33,6 +48,13 @@ public class Basis {
 
 	@Init
 	public void init(FMLInitializationEvent event) {
+
+		testItem = new ItemBasis(testItemID);
+		testItem.setUnlocalizedName("testItem");
+		testItem.setCreativeTab(CreativeTabs.tabDecorations);
+
+		registerItems();
+		updateLanguage();
 		initCraftingRecipes();
 	}
 
@@ -61,5 +83,19 @@ public class Basis {
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 64),
 				new ItemStack(Block.dirt));
+	}
+
+	/**
+	 * add items
+	 */
+	private void registerItems() {
+		GameRegistry.registerItem(testItem, "phaenovum");
+	}
+
+	/**
+	 * add names for items
+	 */
+	private void updateLanguage() {
+		LanguageRegistry.addName(testItem, "phaenovum");
 	}
 }
