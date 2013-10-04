@@ -51,6 +51,14 @@ public class Basis {
 	 * add crafting recipes
 	 */
 	private void initCraftingRecipes() {
+		GameRegistry.addRecipe(new ItemStack(Item.feather),
+		// 3x3 crafting table
+				"#XU", // upper row
+				"#XX", // middle row
+				"###", // lower row
+				// definition of single characters (undefined chars are empty)
+				'#', Block.dirt, 'U', Item.ingotGold);
+
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 64),
 				new ItemStack(Block.dirt));
 	}
