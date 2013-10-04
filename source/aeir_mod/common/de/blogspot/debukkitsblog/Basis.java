@@ -106,6 +106,8 @@ public class Basis {
 		updateLanguage();
 		initCraftingRecipes();
 		initSmeltingRecipes();
+
+		GameRegistry.registerWorldGenerator(new Generator());
 	}
 
 	@PostInit
