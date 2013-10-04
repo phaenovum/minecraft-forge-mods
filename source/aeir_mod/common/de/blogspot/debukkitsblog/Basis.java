@@ -102,6 +102,8 @@ public class Basis {
 	 * add crafting recipes
 	 */
 	private void initCraftingRecipes() {
+		ItemStack dirtStack = new ItemStack(Block.dirt);
+
 		GameRegistry.addRecipe(new ItemStack(Item.feather),
 		// 3x3 crafting table
 				"#XU", // upper row
@@ -110,8 +112,11 @@ public class Basis {
 				// definition of single characters (undefined chars are empty)
 				'#', Block.dirt, 'U', Item.ingotGold);
 
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 64),
-				new ItemStack(Block.dirt));
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 8),
+				dirtStack, dirtStack, new ItemStack(Block.sand));
+		/* For testing cake in survival mode */
+		GameRegistry.addShapelessRecipe(new ItemStack(aeCake, 1), dirtStack);
+
 	}
 
 	/**
