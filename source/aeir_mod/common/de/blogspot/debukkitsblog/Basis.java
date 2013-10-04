@@ -39,6 +39,9 @@ public class Basis {
 	public static ItemBasis testItem2;
 	public int testItem2ID = 15001;
 
+	public static ItemFoodBasis aeCake;
+	public int aeCakeID = 15002;
+
 	public static Block testBlock;
 	public int testBlockID = 180;
 
@@ -70,6 +73,12 @@ public class Basis {
 		testItem2.setUnlocalizedName("testItem2");
 		testItem2.setCreativeTab(CreativeTabs.tabDecorations);
 		testItem2.setIconFile("Basis:me");
+
+		aeCake = new ItemFoodBasis(aeCakeID, 10, 0.6F, false);
+		aeCake.setUnlocalizedName("aeCake");
+		aeCake.setCreativeTab(CreativeTabs.tabFood);
+		aeCake.setMaxStackSize(16);
+		aeCake.setIconFile("Basis:ae_cake");
 
 		registerBlocks();
 		registerItems();
@@ -128,6 +137,7 @@ public class Basis {
 	private void registerItems() {
 		GameRegistry.registerItem(testItem, "phaenovum");
 		GameRegistry.registerItem(testItem2, "lars");
+		GameRegistry.registerItem(aeCake, "aeCake");
 	}
 
 	/**
@@ -137,5 +147,6 @@ public class Basis {
 		LanguageRegistry.addName(testBlock, "phaenovum Rock");
 		LanguageRegistry.addName(testItem, "phaenovum");
 		LanguageRegistry.addName(testItem2, "Lars");
+		LanguageRegistry.addName(aeCake, "phaenovum Cake");
 	}
 }
