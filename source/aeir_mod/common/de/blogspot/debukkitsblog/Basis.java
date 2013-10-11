@@ -46,10 +46,10 @@ public class Basis {
 	public int aeCakeID = 15002;
 	public String aeCakeName = "phaenovum cake";
 
-	public static ItemPickaxeDirt diryPickAxe;
-	public int diryPickAxeID = 15003;
-	public String diryPickAxeName = "dirty Pickaxe";
-	private static EnumToolMaterial diryPickAxeMaterial = EnumHelper
+	public static ItemPickaxeDirt dirtyPickAxe;
+	public int dirtyPickAxeID = 15003;
+	public String dirtyPickAxeName = "dirty Pickaxe";
+	private static EnumToolMaterial dirtyPickAxeMaterial = EnumHelper
 			.addToolMaterial(Block.dirt.getUnlocalizedName(), 4, 2500, 14F, 5,
 					22);
 
@@ -110,11 +110,11 @@ public class Basis {
 		aeCake.setMaxStackSize(16);
 		aeCake.setIconFile("Basis:ae_cake");
 
-		diryPickAxe = new ItemPickaxeDirt(diryPickAxeID, diryPickAxeMaterial);
-		diryPickAxe.setUnlocalizedName("diryPickAxe");
-		diryPickAxe.setCreativeTab(CreativeTabs.tabTools);
-		diryPickAxe.setMaxStackSize(1);
-		diryPickAxe.setIconFile("Basis:dirty_pickaxe");
+		dirtyPickAxe = new ItemPickaxeDirt(dirtyPickAxeID, dirtyPickAxeMaterial);
+		dirtyPickAxe.setUnlocalizedName("diryPickAxe");
+		dirtyPickAxe.setCreativeTab(CreativeTabs.tabTools);
+		dirtyPickAxe.setMaxStackSize(1);
+		dirtyPickAxe.setIconFile("Basis:dirty_pickaxe");
 
 		registerBlocks();
 		registerItems();
@@ -154,7 +154,7 @@ public class Basis {
 				dirtStack, dirtStack, new ItemStack(Block.sand));
 		/* For testing cake in survival mode */
 		GameRegistry.addShapelessRecipe(new ItemStack(aeCake, 1), dirtStack);
-		GameRegistry.addRecipe(new ItemStack(diryPickAxe),
+		GameRegistry.addRecipe(new ItemStack(dirtyPickAxe),
 		// 3x3 crafting table
 				"###", // upper row
 				"XIX", // middle row
@@ -189,7 +189,7 @@ public class Basis {
 		GameRegistry.registerItem(testItem, "phaenovum");
 		GameRegistry.registerItem(testItem2, "lars");
 		GameRegistry.registerItem(aeCake, "aeCake");
-		GameRegistry.registerItem(diryPickAxe, "diryPickAxe");
+		GameRegistry.registerItem(dirtyPickAxe, "diryPickAxe");
 	}
 
 	/**
@@ -201,6 +201,6 @@ public class Basis {
 		LanguageRegistry.addName(testItem2, "Lars");
 		LanguageRegistry.addName(aeCake, "phaenovum Cake");
 		LanguageRegistry.addName(aeCake, aeCakeName);
-		LanguageRegistry.addName(diryPickAxe, "dirty Pickaxe");
+		LanguageRegistry.addName(dirtyPickAxe, "dirty Pickaxe");
 	}
 }
