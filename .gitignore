@@ -10,3 +10,5 @@ eclipse/logs
 eclipse/crash-reports
 forge/*
 forge-1.6.4-9.11.0.884*
+javadoc/*
+mc-source
