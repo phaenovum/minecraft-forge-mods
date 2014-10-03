@@ -5,6 +5,7 @@ package org.phaenovum.mc;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import org.phaenovum.mc.proxies.CommonProxy;
@@ -25,6 +26,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = "org.phaenovum.mc.Paencaeke", name = "Paencaeke", version = "0.0.1")
 public class Paencaeke {
 
+	Item itemAe;
+
 	@Instance(value = "org.phaenovum.mc.Paencaeke")
 	public static Paencaeke paencaeke;
 
@@ -33,7 +36,8 @@ public class Paencaeke {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-
+		itemAe = new ItemAe();
+		GameRegistry.registerItem(itemAe, "ae");
 	}
 
 	@EventHandler
