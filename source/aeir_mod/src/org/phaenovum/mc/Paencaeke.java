@@ -51,6 +51,8 @@ public class Paencaeke {
 		/* registers the texture renderers */
 		proxy.registerRenderers();
 
+		GameRegistry.registerFuelHandler(new FuelHandler());
+
 		loadRecipes();
 	}
 
