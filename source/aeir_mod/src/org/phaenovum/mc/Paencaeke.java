@@ -3,6 +3,8 @@
  */
 package org.phaenovum.mc;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -27,6 +29,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class Paencaeke {
 
 	Item itemAe;
+	Block blockAe;
 
 	@Instance(value = "org.phaenovum.mc.Paencaeke")
 	public static Paencaeke paencaeke;
@@ -38,6 +41,9 @@ public class Paencaeke {
 	public void preInit(FMLPreInitializationEvent event) {
 		itemAe = new ItemAe();
 		GameRegistry.registerItem(itemAe, "ae");
+
+		blockAe = new BlockPhaenovum(Material.glass);
+		GameRegistry.registerBlock(blockAe, "blockPhaenovum");
 	}
 
 	@EventHandler
@@ -89,6 +95,8 @@ public class Paencaeke {
 		 */
 		GameRegistry.addSmelting(Items.wheat, new ItemStack(Items.wheat_seeds),
 				1f);
+
+		GameRegistry.addShapelessRecipe(new ItemStack(itemAe, 1), blockAe);
 	}
 
 }
