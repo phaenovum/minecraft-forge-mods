@@ -67,6 +67,12 @@ public class Paencaeke {
 				// space is undefined and thus stands for an empty field
 				);
 
+		/*
+		 * This adds a smelting recipe. Unfortunately here, the input is the
+		 * first parameter, the output the second.
+		 */
+		GameRegistry.addSmelting(Items.wheat, new ItemStack(Items.wheat_seeds),
+				1f);
 	}
 
 	@EventHandler
