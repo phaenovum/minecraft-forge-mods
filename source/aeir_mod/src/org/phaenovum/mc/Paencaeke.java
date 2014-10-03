@@ -3,6 +3,7 @@
  */
 package org.phaenovum.mc;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -47,6 +48,24 @@ public class Paencaeke {
 		 */
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.cake, 2),
 				Items.egg, Items.water_bucket, Items.wheat_seeds);
+
+		/*
+		 * This is a shaped recipe, i.e. the String defines the layout of the
+		 * items/blocks on the crafting table. The assignment of the characters
+		 * to blocks/items follows after the String
+		 */
+		GameRegistry.addRecipe(new ItemStack(Items.nether_star, 1),// The output
+																	// of the
+																	// recipe
+				// 3x3 crafting table
+				"X  ", // upper row
+				" # ", // middle row
+				"  X", // lower row
+				// definition of single characters (undefined chars are empty)
+				Character.valueOf('X'), Blocks.dirt, // X stands for dirt block
+				Character.valueOf('#'), Items.apple // # stands for apple item
+				// space is undefined and thus stands for an empty field
+				);
 
 	}
 
