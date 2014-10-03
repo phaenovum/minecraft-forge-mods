@@ -41,6 +41,18 @@ public class Paencaeke {
 		/* registers the texture renderers */
 		proxy.registerRenderers();
 
+		loadRecipes();
+	}
+
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+
+	}
+
+	/**
+	 * Load crafting and smelt recipes.
+	 */
+	private void loadRecipes() {
 		/*
 		 * Everything you want to add to the MC game has to be registered at
 		 * GameRegistry. This add a shapeless recipe, i.e. the arrangement of
@@ -73,11 +85,6 @@ public class Paencaeke {
 		 */
 		GameRegistry.addSmelting(Items.wheat, new ItemStack(Items.wheat_seeds),
 				1f);
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-
 	}
 
 }
