@@ -30,6 +30,7 @@ public class Paencaeke {
 
 	Item itemAe;
 	Block blockAe;
+	Item itemPaencaeke;
 
 	@Instance(value = "org.phaenovum.mc.Paencaeke")
 	public static Paencaeke paencaeke;
@@ -44,6 +45,10 @@ public class Paencaeke {
 
 		blockAe = new BlockPhaenovum(Material.glass);
 		GameRegistry.registerBlock(blockAe, "blockPhaenovum");
+
+		itemPaencaeke = new ItemPaencaeke();
+		GameRegistry.registerItem(itemPaencaeke, "paencaeke");
+
 	}
 
 	@EventHandler
@@ -99,6 +104,11 @@ public class Paencaeke {
 				1f);
 
 		GameRegistry.addShapelessRecipe(new ItemStack(itemAe, 1), blockAe);
+
+		GameRegistry.addRecipe(new ItemStack(itemPaencaeke, 1),//
+				" #",//
+				"# ",//
+				Character.valueOf('#'), Blocks.dirt);
 	}
 
 }
