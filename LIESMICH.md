@@ -4,14 +4,18 @@ Minecraft Mods
 ==============
 
 Diese Mods basieren auf
-minecraftforge-src-1.6.4-9.11.0.884
+forge-1.7.10-10.13.0.1180-src.zip
 heruntergeladen von:
-http://adf.ly/673885/http://files.minecraftforge.net/minecraftforge/minecraftforge-src-1.6.4-9.11.0.884.zip
+http://adf.ly/673885/http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.7.10-10.13.0.1180/forge-1.7.10-10.13.0.1180-src.zip
+Sollte der Link nicht mehr funktionieren, kannst Du hier nach dem aktuellsten
+Link suchen:
+http://www.minecraftforge.net/forum/index.php/board,3.0.html
 
 Verzeichnis Struktur
 --------------------
 
-Der vorkonfigurierte Workspace für Eclipse IDE Nutzer
+Der vorkonfigurierte Workspace für Eclipse IDE Nutzer. Dies ist nicht der im
+forge Verzeichnis, dient aber dem selben Zweck:
 
     ./eclipse/
 
@@ -19,26 +23,12 @@ Die Forge Dateien. Wird beim Entpacken des Forge Zip-Archivs erstellt
 
     ./forge/
 
-Das Installationskript für Forge
-
-    ./forge/install.sh oder /forge/install.cmd
-
-Die Minecraft Coder Pack Tools. Wird bei der Installation erstellt
-
-    ./forge/mcp/
-
-Skripts die Deinen Quelltext zum veröffentlichen vorbereiten
-
-    ./forge/mcp/recompile.sh /forge/mcp/reobfuscate.sh (.bat unter Windows)
-
-Hier landen Deine Klassendateien nachdem reobfuscate.sh (.bat unter Windows)
-ausgeführt wurde
-
-    ./forge/mcp/reobf/
-
 Hier befindet sich Dein Quelltext
 
     ./source/
+
+Ich verwende meine eigenen ./eclipse und ./source verzeichnisse, um mir die
+Nutzung eines Versionskontrollsystems (git) zu erleichtern.
 
 
 Installation
@@ -47,25 +37,20 @@ Installation
 Nachdem dieses Repository geklont wurde:
 
 - lade das empfohlene Minecraft Forge source Zip-Archiv herunter
-- entpacke minecraftforge-src-1.6.4-9.11.0.884.zip innerhalb Deines Repository
+- entpacke forge-1.7.10-10.13.0.1180-src.zip innerhalb Deines Repository
 Klons
 
-      unzip minecraftforge-src-1.6.4-9.11.0.884.zip
+      unzip forge-1.7.10-10.13.0.1180-src.zip
 
 - wechsle in das forge Verzeichnis
 
       cd forge/
 
-- unter Linux/Mac mache das Installationsskript ausführbar
-
-      chmod u+x install.sh
-
-- führe das Installationsskript aus (unter Windows Doppelklick auf install.cmd)
-
-      ./install.sh
+- folge der englischen (die deutsche ist veraltet) forge Installationsanleitung
+hier: http://www.minecraftforge.net/wiki/Installation/Source
 
 - Öffne Eclipse und wähle das ./eclipse Verzeichnis als Workspace
-( *nicht* 'forge/mcp/eclipse').
+( *nicht* 'forge/eclipse').
 
 - In Eclipse:
 
@@ -82,13 +67,13 @@ Klons
   - navigiere nochmals zu 'File > Import...' und wähle  'General > Preferences'
 
   - wähle unter 'Browse' das Verzeichnis `eclipse_cfg` und wähle die
-  'forgeMCP-eclipse-settings.epf' Datei, beende den Dialog mit 'Finish'
+  'forge-preferences.epf' Datei, beende den Dialog mit 'Finish'
 
   - navigiere das letzte mal zu 'File > Import...' und wähle
   'Run/Debug > Launch Configurations '
 
   - wähle unter 'Browse' das Verzeichnis
-  `eclipse_cfg/forgeMCP-eclipse-launch-config` und dort die 'Client.launch'
+  `eclipse_cfg/forge-launchers` und dort die 'Client.launch'
   sowie 'Server.launch' Konfigurationen und beende den Dialog wieder mit
   'Finish'
 
