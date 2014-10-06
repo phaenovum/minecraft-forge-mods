@@ -73,7 +73,16 @@ hier: http://www.minecraftforge.net/wiki/Installation/Source
   'Run/Debug > Launch Configurations '
 
   - wähle unter 'Browse' das Verzeichnis
-  `eclipse_cfg/forge-launchers` und dort die 'Client.launch'
-  sowie 'Server.launch' Konfigurationen und beende den Dialog wieder mit
-  'Finish'
+  `eclipse_cfg/forge-launchers` und dort alle "Launch" Konfigurationen und
+  beende den Dialog wieder mit   'Finish'
+
+- aeir_mod ist unser Projekt, seine "Launchers" sind mit Client/Server aeir_mod.
+  bezeichnet.
+
+- forge ist das originale Forge Projekt. Es wurde als "required Project on the
+  build path" dem Projekt aeir_mod hinzugefügt. Es wurde so konfiguriert, dass
+  alle forge/mc Bibliotheken exportiert und somit von aeir_mod importiert
+  werden. Du kannst auf diese Art beliebig eigene Projekte erstellen, aber
+  vergiss nicht für jedes Projekt "Launcher" anzulegen, die *Dein* Projekt
+  starten.
 

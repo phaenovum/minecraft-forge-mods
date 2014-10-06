@@ -70,6 +70,12 @@ After cloning this repository:
   'Run/Debug > Launch Configurations '
 
   - 'Browse' to `eclipse_cfg/forge-launchers` and select
-  the 'Client.launch' and 'Server.launch' configurations contained therein and
-  'Finish' the dialogue
+  all launch configurations contained therein and 'Finish' the dialogue
 
+- aeir_mod is our project, its launchers are called Client/Server aeir_mod.
+
+- The forge project is the original forge project. It is added as "required
+  Project on the build path" of aeir_mod. It is configured to export all
+  forge/mc libraries which are thus imported by aeir_mod. You can create your
+  own projects like this, but do not forget to edit the launchers to launch
+  *your* project.
